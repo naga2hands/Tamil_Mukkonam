@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #e8e4df;
+  --panel-bg: rgba(247, 247, 247, 0.74);
+  --panel-border: rgba(56, 82, 120, 0.7);
+  --ink: #1c2e4d;
+  --primary: #214d9a;
+  --gold: rgba(248, 206, 96, 0.92);
+  --line: rgba(19, 19, 19, 0.96);
+  --triangle-fill: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+}
+
+.page-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 24px 40px;
+}
+
+.top-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.top-panel {
+  background: var(--panel-bg);
+  border: 2px solid var(--panel-border);
+  border-radius: 18px;
+  padding: 12px 18px 16px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+}
+
+.top-panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+}
+
+.letter-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  min-height: 60px;
+  align-items: center;
+}
+
+.letter-chip {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid rgba(33, 78, 146, 0.8);
+  background: rgba(255,255,255,0.14);
+  color: var(--primary);
+  font-size: 1.5rem;
+  line-height: 1;
+  font-family: "Noto Sans Tamil", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.letter-chip:hover,
+.letter-chip:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 4px rgba(33, 78, 146, 0.12);
+  outline: none;
+}
+
+.letter-chip.active {
+  background: linear-gradient(135deg, rgba(248, 206, 96, 0.9), rgba(235, 190, 70, 0.75));
+  box-shadow: 0 0 0 4px rgba(248, 206, 96, 0.25), 0 0 18px rgba(248, 206, 96, 0.26);
+}
+
+.main-learning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  height: min(56vw, 500px);
+}
+
+.triangle-scene {
+  position: relative;
+  width: min(76vw, 780px);
+  height: min(56vw, 500px);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.triangle-outline {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  overflow: visible;
+  aspect-ratio: 1 / 1;
+}
+
+.triangle-outline polygon {
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.outer-triangle polygon {
+  fill: rgba(255, 255, 0, 0.15);
+  stroke: rgba(255, 200, 0, 0.8);
+  z-index: 0;
+}
+
+.middle-triangle polygon {
+  fill: rgba(0, 200, 220, 0.2);
+  stroke: rgba(0, 180, 200, 0.8);
+  z-index: 1;
+}
+
+.triangle-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.outer-layer {
+  z-index: 5;
+}
+
+.middle-layer {
+  width: 60%;
+  height: 60%;
+  z-index: 10;
+}
+
+.inner-layer {
+  width: 35%;
+  height: 35%;
+  z-index: 5;
+}
+
+.layer-letter {
+  position: absolute;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 12px;
+  border: 2px solid rgba(37, 64, 108, 0.5);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+  color: var(--ink);
+  font-size: clamp(1.2rem, 1.5vw, 1.7rem);
+  line-height: 1;
+  font-family: "Noto Sans Tamil", sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.layer-letter:hover,
+.layer-letter:focus-visible {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 0 0 4px rgba(43, 89, 182, 0.12);
+  outline: none;
+}
+
+.layer-letter.active {
+  background: linear-gradient(135deg, rgba(147, 182, 255, 0.28), rgba(250, 222, 139, 0.38));
+  border-color: rgba(37, 64, 108, 0.82);
+  box-shadow: 0 0 0 4px rgba(37, 64, 108, 0.12), 0 0 20px rgba(93, 137, 255, 0.22);
+}
+
+.center-letter {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, 65%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-size: clamp(1.2rem, 2.0vw, 2.0rem);
+  color: var(--ink);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.equation-panel {
+  margin-top: 24px;
+  text-align: center;
+  background: var(--panel-bg);
+  border: 2px solid var(--panel-border);
+  border-radius: 18px;
+  padding: 12px 18px 16px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.equation-label {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.equation-text {
+  margin: 0;
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.sequence,
+.result {
+  display: inline-block;
+  min-width: 54px;
+}
+
+.result {
+  color: var(--primary);
+}
+
+.aytham-wrap {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small-triangle {
+  width: 150px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: rgba(255,255,255,0.12);
+  border: 4px solid var(--line);
+}
+
+.small-triangle span {
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-size: 3rem;
+  color: var(--primary);
+  transform: translateY(10px);
+}
+
+@media (max-width: 900px) {
+  .top-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .board-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .aytham-wrap {
+    margin-top: 0;
+  }
+}
+
+  .triangle-scene {
+    width: min(92vw, 640px);
+    height: min(78vw, 520px);
+  }
+
+  .layer-letter {
+    font-size: 1rem;
+  }
+}
