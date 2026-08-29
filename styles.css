@@ -65,7 +65,7 @@ body {
   border: 2px solid rgba(33, 78, 146, 0.8);
   background: rgba(255,255,255,0.14);
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   line-height: 1;
   font-family: "Noto Sans Tamil", sans-serif;
   display: inline-flex;
@@ -170,7 +170,7 @@ body {
   z-index: 5;
 }
 
-.layer-letter {
+/* .layer-letter {
   position: absolute;
   z-index: 20;
   transform: translate(-50%, -50%);
@@ -193,19 +193,62 @@ body {
   cursor: pointer;
   pointer-events: auto;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+} */
+.layer-letter {
+  position: absolute;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  min-width: unset;
+  min-height: unset;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+  font-size: clamp(1.6rem, 2.0vw, 1.6rem) !important;
+  line-height: 1;
+  font-family: "Noto Sans Tamil", sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.layer-letter:hover,
+/*.layer-letter:hover,
 .layer-letter:focus-visible {
   transform: translate(-50%, -50%) scale(1.05);
   box-shadow: 0 0 0 4px rgba(43, 89, 182, 0.12);
   outline: none;
+}*/
+.layer-letter:hover,
+.layer-letter:focus-visible {
+  transform: translate(-50%, -50%) scale(1.05);
+  outline: none;
 }
 
-.layer-letter.active {
+/*.layer-letter.active {
   background: linear-gradient(135deg, rgba(147, 182, 255, 0.28), rgba(250, 222, 139, 0.38));
   border-color: rgba(37, 64, 108, 0.82);
   box-shadow: 0 0 0 4px rgba(37, 64, 108, 0.12), 0 0 20px rgba(93, 137, 255, 0.22);
+}*/
+.layer-letter.active {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(147, 182, 255, 0.28), rgba(250, 222, 139, 0.38));
+  border: 2px solid rgba(37, 64, 108, 0.82);
+  box-shadow: 0 0 0 4px rgba(37, 64, 108, 0.12), 0 0 20px rgba(93, 137, 255, 0.22);
+}
+
+.layer-letter.active:hover,
+.layer-letter.active:focus-visible {
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .center-letter {
