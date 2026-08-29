@@ -30,7 +30,7 @@ body {
 .top-bar {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 180px;
   margin-bottom: 28px;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 .triangle-outline polygon {
-  stroke-width: 3;
+  stroke-width: 1;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
@@ -212,7 +212,7 @@ body {
   position: absolute;
   left: 50%;
   top: 48%;
-  transform: translate(-50%, 65%);
+  transform: translate(-50%, 55%);
   display: flex;
   align-items: center;
   justify-content: center;

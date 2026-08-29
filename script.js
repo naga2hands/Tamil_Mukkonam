@@ -64,26 +64,26 @@ right: [
 
 const middleRows = [
   [
-    { letter: "ஔ", x: 42, y: 16 },
-    { letter: "அ", x: 58, y: 16 }
+    { letter: "ஔ", x: 42, y: 12 },
+    { letter: "அ", x: 58, y: 12 }
   ],
   [
-    { letter: "ஓ", x: 34, y: 34 },
-    { letter: "ஆ", x: 66, y: 34 }
+    { letter: "ஓ", x: 30, y: 31 },
+    { letter: "ஆ", x: 70, y: 31 }
   ],
   [
-    { letter: "ஒ", x: 26, y: 52 },
-    { letter: "இ", x: 74, y: 52 }
+    { letter: "ஒ", x: 18, y: 50 },
+    { letter: "இ", x: 82, y: 50 }
   ],
   [
-    { letter: "ஐ", x: 20, y: 70 },
-    { letter: "ஈ", x: 80, y: 70 }
+    { letter: "ஐ", x: 6, y: 70 },
+    { letter: "ஈ", x: 94, y: 70 }
   ],
   [
-    { letter: "ஏ", x: 12, y: 88 },
-    { letter: "எ", x: 37, y: 88 },
-    { letter: "ஊ", x: 63, y: 88 },
-    { letter: "உ", x: 88, y: 88 }
+    { letter: "ஏ", x: 12, y: 92 },
+    { letter: "எ", x: 37, y: 92 },
+    { letter: "ஊ", x: 63, y: 92 },
+    { letter: "உ", x: 88, y: 92 }
   ]
 ];
 
