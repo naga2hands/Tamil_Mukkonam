@@ -248,7 +248,7 @@ body {
 
 /* Outer layer tiles - different color when active */
 .outer-layer .layer-letter.active {
-  background: rgba(250, 107, 107, 0.9);
+  background: rgba(150, 153, 78, 0.9);
 }
 
 /* Inner/Middle layer tiles - different color when active */
