@@ -183,7 +183,6 @@ function renderTriangleTiles() {
 function renderEquation() {
   const combined = combineLetters(selected.consonant, selected.vowel);
   equationText.innerHTML = `<span class="sequence">${selected.consonant}</span> + <span class="sequence">${selected.vowel}</span> = <span class="result">${combined}</span>`;
-  centerLetter.textContent = combined;
 }
 
 function render() {
